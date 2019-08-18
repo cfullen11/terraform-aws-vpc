@@ -23,10 +23,30 @@ resource "aws_subnet" "public_subnet-1" {
   cidr_block = "10.0.1.0/24"
 
   tags = {
-    Name = "skodabeer"
+    Name = "public_subnet_1"
     Environement = "test"
     Owner = "dogspam@me.com"
     SubnetUse = "public"
+  }
+}
+
+resource "aws_security_group" "allow_craig" {
+  name        = "allow_craig"
+  description = "Allow Craig Home IP"
+  vpc_id      = aws_vpc.skodabeer.id
+
+  ingress {
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["104.185.72.107/32"]
+  }
+
+  egress {
+    from_port       = 0
+    to_port         = 0
+    protocol        = "tcp"
+    cidr_blocks     = ["0.0.0.0/0"]
   }
 }
 
