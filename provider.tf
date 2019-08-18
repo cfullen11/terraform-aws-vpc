@@ -1,3 +1,5 @@
+
 provider "aws" {
-  version = "~> 3.0"
+  region  = "us-east-2"
+  shared_credentials_file = "/Users/craigfullen/.aws/skodabeer_creds"
 }

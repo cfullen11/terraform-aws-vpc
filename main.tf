@@ -19,13 +19,15 @@ resource "aws_vpc_ipv4_cidr_block_association" "secondary_cidr" {
 }
 
 resource "aws_subnet" "public_subnet-1" {
-  vpc_id     = aws_vpc.skodabeer.id
+  vpc_id = aws_vpc.skodabeer.id
   cidr_block = "10.0.1.0/24"
 
   tags = {
-    Name            = "skodabeer"
-    Environement    = "test"
-    Owner           = "dogspam@me.com"
-    SubnetUse       = "public"
+    Name = "skodabeer"
+    Environement = "test"
+    Owner = "dogspam@me.com"
+    SubnetUse = "public"
   }
 }
+
+
