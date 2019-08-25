@@ -47,6 +47,12 @@ resource "aws_security_group" "allow_craig" {
     to_port         = 0
     protocol        = "tcp"
     cidr_blocks     = ["0.0.0.0/0"]
+    }
+
+  tags = {
+      Name = "craighomeaccess"
+      Environement = "test"
+      Owner = "dogspam@me.com"
   }
 }
 
